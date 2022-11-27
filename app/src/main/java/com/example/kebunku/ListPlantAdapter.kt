@@ -10,17 +10,17 @@ import com.bumptech.glide.Glide
 class ListPlantAdapter(private val listPlant: ArrayList<Plant>) :
     RecyclerView.Adapter<ListPlantAdapter.ListViewHolder>() {
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val tvName: TextView = itemView.findViewById(R.id.tv_item_name)
+//        private val tvName: TextView = itemView.findViewById(R.id.plant_name)
 
         fun bind(plant: Plant) {
             Glide.with(itemView.context)
                 .load(plant.photo)
-                .into(itemView.findViewById(R.id.img_item_photo))
-            tvName.text = plant.name
+                .into(itemView.findViewById(R.id.plant_item_image))
+//            tvName.text = plant.name
 
-            itemView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.img_item_photo)
-                .setOnClickListener {
-                }
+//            itemView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.cardView)
+//                .setOnClickListener {
+//                }
         }
     }
 
@@ -35,5 +35,4 @@ class ListPlantAdapter(private val listPlant: ArrayList<Plant>) :
     }
 
     override fun getItemCount(): Int = listPlant.size
-}
 }
