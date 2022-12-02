@@ -45,6 +45,15 @@ class HomeFragment : Fragment() {
         val listPlantAdapter = ListPlantAdapter(list)
         rvPlant.adapter = listPlantAdapter
         rvPlant.layoutManager = GridLayoutManager(view.context, 2)
+        val btnAddPlant: View = view.findViewById(R.id.btn_add_plant)
+        btnAddPlant.setOnClickListener {
+            val fragment = AddPlantFragment()
+            val fragmentManager = activity?.supportFragmentManager
+            val fragmentTransaction = fragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.fragmentContainerView, fragment)
+            fragmentTransaction?.addToBackStack(null)
+            fragmentTransaction?.commit()
+        }
         return view
     }
 
